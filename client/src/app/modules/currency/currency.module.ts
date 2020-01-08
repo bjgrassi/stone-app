@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms'
 import { CurrencyComponent } from './currency/currency.component';
 import { CoreModule } from '../core/core.module';
 import { CurrencyRoutes } from './currency.routes';
-
+import { NgxMaskModule } from 'ngx-mask'
 
 
 @NgModule({
@@ -19,7 +19,8 @@ import { CurrencyRoutes } from './currency.routes';
     CommonModule,
     FormsModule,
     CoreModule,
-    CurrencyRoutes
+    CurrencyRoutes,
+    NgxMaskModule.forRoot()
   ]
 })
 export class CurrencyModule { }
