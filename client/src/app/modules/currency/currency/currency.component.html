@@ -1,20 +1,20 @@
 <div class="card text-white bg-primary mb-4 d-flex justify-content-center">
     <div class="card-body">
         <p class="card-text">1 Dólar americano é igual a</p>
-        <h2 class="card-title">{{ currency.USD.high | currency:'BRL':true }} Real brasileiro</h2>
+        <h2 class="card-title">{{ currency.USD.high | currency:'BRL':'R$' }} Real brasileiro</h2>
     </div>
 </div>
-<div class="form-row value-price">
+<div class="form-row value-price justify-content-between">
     <div class="form-group col-md-6">
         <legend class="control-label">Insira o valor em dólar</legend>
         <div class="form-group">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
+                    <span class="input-group-text">US$</span>
                 </div>
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <input type="text" class="form-control" #price (keyup)="priceInput(price.value)" mask="separator" thousandSeparator=".">
                 <div class="input-group-append">
-                    <span class="input-group-text">,00</span>
+                    <span class="input-group-text">.00</span>
                 </div>
             </div>
         </div>
@@ -23,11 +23,24 @@
         <legend class="control-label">Insira a taxa do estado</legend>
         <div class="form-group">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <input type="text" class="form-control" 
+                    #tax (keyup)="taxInput(tax.value)" maxlength="6" mask="separator.2" thousandSeparator=".">
                 <div class="input-group-append">
                     <span class="input-group-text">%</span>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="card text-white bg-primary mb-4 d-flex col-md-5">
+        <div class="card-body">
+            <p class="card-text">Preço em Dólar + Taxa</p>
+            <h2 class="card-title"> {{ getAmericanPrice() | currency:'USD':'$' }} </h2>
+        </div>
+    </div>
+    <div class="card text-white bg-primary mb-4 d-flex col-md-5">
+        <div class="card-body">
+            <p class="card-text">Preço em Reais + Taxa</p>
+            <h2 class="card-title"> {{ getBrazilianPrice() | currency:'BRL':'R$' }} </h2>
         </div>
     </div>
 </div>
