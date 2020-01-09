@@ -11,8 +11,9 @@
     - Returns the sum of the selected IOF and the previous results of dollars and reais;
 
 ### Prerequisites
-Node.js - * [click for download](https://nodejs.org/en/)
-Yarn - * [click for download](https://yarnpkg.com/en/docs/install#windows-stable)
+Node.js - [click for download](https://nodejs.org/en/)
+
+Yarn - [click for download](https://yarnpkg.com/en/docs/install#windows-stable)
 
 ## Getting Started
 Clone my repo in your computer
@@ -25,12 +26,15 @@ I used VSCode on Windows for development and I'll explain based on it:
 - Select folder app-stone 
 
 From the local VSCode terminal type
+
 ```cd client```
 
 After get into the folder, install dependencies
+
 ```yarn install```
 
 Run server
+
 ```yarn start```
 
 *A new tab will open automatically in your browser.. If don't, just press `ctrl` + click http://localhost:4200/*
