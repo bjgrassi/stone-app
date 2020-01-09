@@ -17,6 +17,7 @@ Yarn - [click for download](https://yarnpkg.com/en/docs/install#windows-stable)
 
 ## Getting Started
 Clone my repo in your computer
+
 ```git clone https://github.com/bjgrassi/stone-app.git```
 
 ### Installing
@@ -37,7 +38,7 @@ Run server
 
 ```yarn start```
 
-*A new tab will open automatically in your browser.. If don't, just press `ctrl` + click http://localhost:4200/*
+*A new tab will open automatically in your browser.. If don't, just press `ctrl` + click http://localhost:4200/ (or click here ¯\_(ツ)_/¯)*
 
 ![Sucess](client/src/assets/imgs/terminal.png)
 
@@ -45,3 +46,4 @@ Run server
 * [Angular](https://angular.io/) - The web framework used
 * [Currency API](https://docs.awesomeapi.com.br/api-de-moedas) - The API used
 * [Bootswatch](https://bootswatch.com/) - The theme used
+* [Ngx-Mask](https://www.npmjs.com/package/ngx-mask) - Mask for numbers
