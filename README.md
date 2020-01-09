@@ -38,7 +38,8 @@ Run server
 
 ```yarn start```
 
-*A new tab will open automatically in your browser.. If don't, just press `ctrl` + click http://localhost:4200/ (or click here ¯\_(ツ)_/¯)*
+*A new tab will open automatically in your browser.. If don't,* 
+*just press `ctrl` + click http://localhost:4200/ (or click here ¯\_(ツ)_/¯)*
 
 ![Sucess](client/src/assets/imgs/terminal.png)
 
