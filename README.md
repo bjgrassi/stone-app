@@ -44,7 +44,7 @@ Run server
 ![Sucess](client/src/assets/imgs/terminal.png)
 
 ## Built With
-* [Angular](https://angular.io/) - The web framework used
+* [Angular CLI](https://angular.io/) - The web framework used > version 8.3.21.
 * [Currency API](https://docs.awesomeapi.com.br/api-de-moedas) - The API used
 * [Bootswatch](https://bootswatch.com/) - The theme used
 * [Ngx-Mask](https://www.npmjs.com/package/ngx-mask) - Mask for numbers
