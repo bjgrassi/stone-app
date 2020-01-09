@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CurrencyService } from '../currency.service';
 import { ICurrency } from './models/icurrency';
 import { Dollar } from './models/dollar';
+import { IOF } from './models/iiof';
 
 @Component({
   selector: 'app-currency',
@@ -15,6 +16,13 @@ export class CurrencyComponent implements OnInit {
   public tax: number = 0;
   public americanPrice: number;
   public brazilianPrice: number;
+  public iofs: IOF[] = [
+    { type: 'Dinheiro', value: '1.1' },
+    { type: 'Cartão', value: '6.4' }
+]
+  public selected = false;
+  public americanTotal: number;
+  public brazilianTotal: number;
 
   constructor(public dollarService: CurrencyService) { }
 
@@ -49,5 +57,14 @@ export class CurrencyComponent implements OnInit {
       return this.brazilianPrice = (this.price * this.currency.USD.high) * (this.tax/100 + 1);
     
     return this.brazilianPrice = 0;
+  }
+
+  //[(Valor do produto em dólar ou real) + (imposto do estado aonde esta comprando)] x (valor do dólar + IOF da compra de dólar)
+  private selectOption(event: any) {
+    this.selected = true;
+    var iof: number = event.target.value;
+
+    this.americanTotal = this.getAmericanPrice() + (this.getAmericanPrice() * (iof/100 + 1))
+    this.brazilianTotal = this.getBrazilianPrice() + (this.getBrazilianPrice() * (iof/100 + 1))
   }
 }

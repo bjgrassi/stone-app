@@ -54,3 +54,32 @@
         </div>
     </div>
 </div>
+
+<fieldset>
+    <legend class="control-label">Selecione a forma de pagamento</legend>
+    <div class="form-group">
+        <div class="custom-control custom-radio" *ngFor="let iof of iofs">
+          <input type="radio" class="custom-control-input"
+          [value]="iof.value" [id]="iof.type"
+          name="paymentType"
+          (change)="selectOption($event)">
+          <label class="custom-control-label" for="{{iof.type}}">
+              {{ iof.type }} <b>({{ iof.value }}% DE IOF)</b>
+          </label>
+        </div>
+      </div>
+      <div class="row justify-content-between" [hidden]="!selected">
+        <div class="card text-white bg-primary mb-4 d-flex col-md-5">
+          <div class="card-body">
+              <p class="card-text">Preço em Dólar</p>
+              <h2 class="card-title"> {{ americanTotal | currency:'USD':'$' }} </h2>
+          </div>
+        </div>
+        <div class="card text-white bg-primary mb-4 d-flex col-md-5">
+          <div class="card-body">
+              <p class="card-text">Preço em Reais</p>
+              <h2 class="card-title"> {{ brazilianTotal | currency:'BRL':'R$' }} </h2>
+          </div>
+        </div>
+      </div>
+</fieldset>
