@@ -38,7 +38,7 @@ export class CurrencyComponent implements OnInit {
   }
 
   public priceInput(value: number): void {
-	  this.price = value;
+    this.price = parseInt(value.toString().replace(",", ""), 10);
   }
 
   public taxInput(value: number): void {
