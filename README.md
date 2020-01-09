@@ -41,7 +41,7 @@ Run server
 *A new tab will open automatically in your browser.. If don't,* 
 *just press `ctrl` + click http://localhost:4200/ (or click here ¯\_(ツ)_/¯)*
 
-![Sucess](client/src/assets/imgs/terminal.png)
+![Sucess](src/assets/imgs/terminal.png)
 
 ## Built With
 * [Angular CLI](https://angular.io/) - The web framework used > version 8.3.21.
