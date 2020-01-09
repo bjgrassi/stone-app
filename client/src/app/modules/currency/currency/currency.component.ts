@@ -45,14 +45,14 @@ export class CurrencyComponent implements OnInit {
 	  this.tax = value;
   }
 
-  private getAmericanPrice() {
+  public getAmericanPrice() {
     if(this.price && this.tax != 0)
       return this.americanPrice = this.price * (this.tax/100 + 1);
     
     return this.americanPrice = 0;
   }
   
-  private getBrazilianPrice() {
+  public getBrazilianPrice() {
     if(this.price && this.tax != 0)
       return this.brazilianPrice = (this.price * this.currency.USD.high) * (this.tax/100 + 1);
     
@@ -60,7 +60,7 @@ export class CurrencyComponent implements OnInit {
   }
 
   //[(Valor do produto em dólar ou real) + (imposto do estado aonde esta comprando)] x (valor do dólar + IOF da compra de dólar)
-  private selectOption(event: any) {
+  public selectOption(event: any) {
     this.selected = true;
     var iof: number = event.target.value;
 
