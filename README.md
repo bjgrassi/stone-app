@@ -1,5 +1,5 @@
 # Challenge Project for Stone Pagamentos
-### Web Application made in Angular
+### Web Application made in Angular and i'ts in portuguese
 
 ## About
 - Dollar quotation display in BRL;
@@ -36,7 +36,7 @@ After get into the folder, install dependencies
 
 Run server
 
-```yarn start```
+```yarn start:dev```
 
 *A new tab will open automatically in your browser.. If don't,* 
 *just press `ctrl` + click http://localhost:4200/ (or click here ¯\_(ツ)_/¯)*
