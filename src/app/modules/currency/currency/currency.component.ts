@@ -66,12 +66,12 @@ export class CurrencyComponent implements OnInit {
   public americanValueWithIOF(): number {
     let iofValue = this.iofModel && parseFloat(this.iofModel.replace(",", "."));
 
-    return this.americanValueWIthTax() * iofValue;
+    return this.americanValueWIthTax() * (iofValue/100 + 1);
   }
   
   public brazilianValueWithIOF(): number {
     let iofValue = this.iofModel && parseFloat(this.iofModel.replace(",", "."));
 
-    return this.brazilianValueWithTax() * iofValue;
+    return this.brazilianValueWithTax() * (iofValue/100 + 1);
   }
 }
