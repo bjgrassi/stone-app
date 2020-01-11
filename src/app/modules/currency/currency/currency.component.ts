@@ -43,33 +43,33 @@ export class CurrencyComponent implements OnInit {
 	  this.tax = value;
   }
 
-  public americanValueWIthTax() {
+  public americanValueWIthTax(): number {
     if(this.price && this.tax != 0)
       return this.americanPriceTax = this.price * (this.tax/100 + 1);
     
     return this.americanPriceTax = 0;
   }
   
-  public currencyDecimals() {
+  public currencyDecimals(): number {
     var currencyStr: string = parseFloat(this.currency.USD.high.toString()).toFixed(2);
-    var currencyNum:number = parseFloat(currencyStr);
+    var currencyNum: number = parseFloat(currencyStr);
     return currencyNum;
   }
 
-  public brazilianValueWithTax() {
+  public brazilianValueWithTax(): number {
     if(this.price && this.tax != 0)
       return this.brazilianPriceTax = (this.price * this.currencyDecimals()) * (this.tax/100 + 1);
     
     return this.brazilianPriceTax = 0;
   }
 
-  public americanValueWithIOF() {
+  public americanValueWithIOF(): number {
     let iofValue = this.iofModel && parseFloat(this.iofModel.replace(",", "."));
 
     return this.americanValueWIthTax() * iofValue;
   }
   
-  public brazilianValueWithIOF() {
+  public brazilianValueWithIOF(): number {
     let iofValue = this.iofModel && parseFloat(this.iofModel.replace(",", "."));
 
     return this.brazilianValueWithTax() * iofValue;
