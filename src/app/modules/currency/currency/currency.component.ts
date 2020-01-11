@@ -14,15 +14,13 @@ export class CurrencyComponent implements OnInit {
   public currency: ICurrency = { USD: new Dollar() };
   public price: number = 0;
   public tax: number = 0;
-  public americanPrice: number;
-  public brazilianPrice: number;
+  public americanPriceTax: number;
+  public brazilianPriceTax: number;
   public iofs: IOF[] = [
-    { type: 'Dinheiro', value: '1.1' },
-    { type: 'Cartão', value: '6.4' }
-]
-  public selected = false;
-  public americanTotal: number;
-  public brazilianTotal: number;
+    { type: 'Dinheiro', value: '1,1' },
+    { type: 'Cartão', value: '6,4' }
+  ]
+  public iofModel: string;
 
   constructor(public dollarService: CurrencyService) { }
 
@@ -38,33 +36,36 @@ export class CurrencyComponent implements OnInit {
   }
 
   public priceInput(value: number): void {
-    this.price = parseInt(value.toString().replace(",", ""), 10);
+    this.price = parseInt(value.toString().replace(".", "").replace(",", "."));
   }
 
   public taxInput(value: number): void {
 	  this.tax = value;
   }
 
-  public getAmericanPrice() {
+  public americanValueWIthTax() {
     if(this.price && this.tax != 0)
-      return this.americanPrice = this.price * (this.tax/100 + 1);
+      return this.americanPriceTax = this.price * (this.tax/100 + 1);
     
-    return this.americanPrice = 0;
+    return this.americanPriceTax = 0;
   }
   
-  public getBrazilianPrice() {
+  public brazilianValueWithTax() {
     if(this.price && this.tax != 0)
-      return this.brazilianPrice = (this.price * this.currency.USD.high) * (this.tax/100 + 1);
+      return this.brazilianPriceTax = (this.price * this.currency.USD.high) * (this.tax/100 + 1);
     
-    return this.brazilianPrice = 0;
+    return this.brazilianPriceTax = 0;
   }
 
-  //[(Valor do produto em dólar ou real) + (imposto do estado aonde esta comprando)] x (valor do dólar + IOF da compra de dólar)
-  public selectOption(event: any) {
-    this.selected = true;
-    var iof: number = event.target.value;
+  public americanValueWithIOF() {
+    let iofValue = this.iofModel && parseFloat(this.iofModel.replace(",", "."));
 
-    this.americanTotal = this.getAmericanPrice() + (this.getAmericanPrice() * (iof/100 + 1))
-    this.brazilianTotal = this.getBrazilianPrice() + (this.getBrazilianPrice() * (iof/100 + 1))
+    return this.americanValueWIthTax() * iofValue;
+  }
+  
+  public brazilianValueWithIOF() {
+    let iofValue = this.iofModel && parseFloat(this.iofModel.replace(",", "."));
+
+    return this.brazilianValueWithTax() * iofValue;
   }
 }
