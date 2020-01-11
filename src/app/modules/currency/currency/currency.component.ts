@@ -50,9 +50,15 @@ export class CurrencyComponent implements OnInit {
     return this.americanPriceTax = 0;
   }
   
+  public currencyDecimals() {
+    var currencyStr: string = parseFloat(this.currency.USD.high.toString()).toFixed(2);
+    var currencyNum:number = parseFloat(currencyStr);
+    return currencyNum;
+  }
+
   public brazilianValueWithTax() {
     if(this.price && this.tax != 0)
-      return this.brazilianPriceTax = (this.price * this.currency.USD.high) * (this.tax/100 + 1);
+      return this.brazilianPriceTax = (this.price * this.currencyDecimals()) * (this.tax/100 + 1);
     
     return this.brazilianPriceTax = 0;
   }
